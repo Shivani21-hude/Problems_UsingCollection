@@ -26,11 +26,16 @@ namespace CountOfRemaingChapters
             int countChapters = 0;
             for(int i = 0; i < chapters; i++)
             {
-                if (currentPage >= numberOfPages[i].Item1 && currentPage <= numberOfPages[i].Item2)
-                {
+                if (currentPage >= numberOfPages[i].Item1 && currentPage <= numberOfPages[i].Item2  )
+                    {
+                    countChapters = i;
                     break;
+                       
+                    }
+                else if(currentPage < numberOfPages[i].Item1 && currentPage > numberOfPages[i-1].Item2)
+                {
+                    countChapters = i;
                 }
-                countChapters++;
             }
             int remainingChapter=chapters-countChapters;
             Console.WriteLine("Remaing Chapters yet to read : " + remainingChapter);
